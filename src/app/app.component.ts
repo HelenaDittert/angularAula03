@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'toDo';
+  tarefas: string[] = []
+  tarefa_atual: string = ''
+
+  adicionarTarefa() {
+    this.tarefas.push(this.tarefa_atual)
+    this.tarefa_atual = ''
+  }
+
+  deletarTarefa(id: number) {
+    if (confirm('Você realmente quer excluir essa tarefa?')) {
+      this.tarefas.splice(id, 1)
+    }
+  }
 }
